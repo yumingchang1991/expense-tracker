@@ -3,7 +3,7 @@
 // ===========================================================================
 
 Method  Routes                          Description
-GET     /                               root path, will redirect to login page
+GET     /                               root path, will redirect to login page if not authenticated, will render records associated with current user if authenticated
 
 GET     /users/register                 register form
 POST    /users/register                 register a new user in database
@@ -15,11 +15,11 @@ PUT     /users/edit                     modify a user in database
 DELETE  /users/delete                   remove a user from database
 
 GET     /records/new                    new record form
-POST    /records/new                    create a new record in database
+POST    /records                        create a new record in database
 GET     /records/:id/edit               edit a record  
-PUT     /records/:id/edit               modify a record in database
-DELETE  /records/:id/delete             delete a record
-DELETE  /records/delete                 delete all records
+PUT     /records/:id                    modify a record in database
+DELETE  /records/:id                    delete a record
+DELETE  /records                        delete all records associated with current user
 
 // Category?
 
