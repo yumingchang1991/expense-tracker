@@ -1,0 +1,39 @@
+<main class="container">
+  <header class="my-2">
+    <h1>會員註冊</h1>
+  </header>
+  <form method="post" action="/users/">
+    <fieldset class="form-group mb-3">
+      <legend>登入資訊</legend>
+      <div class="form-floating mb-3">
+        <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com"
+          value="{{dummyUserEmail}}">
+        <label for="email">電子信箱</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="password" name="password" class="form-control" id="password" placeholder="Password" autocomplete="new-password">
+        <label for="password">密碼</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="password" name="confirmPassword" class="form-control" id="confirmPassword" placeholder="Confirm Password">
+        <label for="confirmPassword">確認密碼</label>
+      </div>
+    </fieldset>
+    <fieldset class="form-group mb-3">
+      <legend>基本資料</legend>
+      <div class="form-floating mb-3">
+        <input type="text" name="name" class="form-control" id="name" placeholder="full name"
+          value="{{dummyUserName}}">
+        <label for="name">姓名</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" name="displayName" class="form-control" id="displayName" placeholder="display name" value="{{dummyUserDisplayName}}">
+        <label for="displayName">顯示名稱</label>
+      </div>
+    </fieldset>
+    <div class="container d-flex flex-column mb-3 p-0">
+      <button type="submit" class="btn btn-success mb-3">註冊</button>
+      <a href="/" class="btn btn-danger mb-3">取消</a>
+    </div>
+  </form>
+</main>
