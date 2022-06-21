@@ -3,10 +3,6 @@ const Schema = mongoose.Schema
 const Model = mongoose.model
 
 const userSchema = new Schema({
-  id: {
-    type: Number,
-    unique: true,
-  },
   name: {
     type: String,
     required: true,
