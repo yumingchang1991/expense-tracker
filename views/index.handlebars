@@ -32,9 +32,11 @@
           <a href="/records/{{_id}}/edit" class="btn btn-outline mx-1">
             修改
           </a>
-          <button type="submit" class="btn btn-outline mx-1">
-            刪除
-          </button>
+          <form method="post" action="/records/{{_id}}?_method=DELETE">
+            <button type="submit" class="btn btn-outline mx-1">
+              刪除
+            </button>
+          </form>
           </div>
         </td>
       </tr>
