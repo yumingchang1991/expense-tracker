@@ -2,9 +2,10 @@ const router = require('express').Router()
 const passport = require('passport')
 const bcrypt = require('bcryptjs')
 const User = require('../../models/user')
+const DummyUsers = require('../../dummyData/users')
 
 router.route('/login').get((req, res) => {
-  res.render('login')
+  res.render('login', { user: DummyUsers[0] })
 })
 
 router.route('/login').post(passport.authenticate('local', {
