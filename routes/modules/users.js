@@ -12,11 +12,11 @@ router.route('/login').post(passport.authenticate('local', {
   failureRedirect: '/users/login'
 }))
 
-router.route('/edit').get((req, res) => {
+router.route('/:id/edit').get((req, res) => {
   res.render('editUser')
 })
 
-router.route('/edit').post((req, res) => {
+router.route('/:id').put((req, res) => {
   const { name, displayName } = req.body
   User
     .findByIdAndUpdate(req.user._id, { name, displayName })
@@ -24,7 +24,7 @@ router.route('/edit').post((req, res) => {
     .catch(err => console.log(err))
 })
 
-router.route('/logout').get((req, res) => {
+router.route('/:id/logout').get((req, res) => {
   req.logout(err => {
     if (err) {
       return console.log('error when logging user out\n', err)

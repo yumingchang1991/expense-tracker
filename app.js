@@ -4,6 +4,7 @@ if (process.env.NODE_ENV !== 'production') {
 const express = require('express')
 const { engine } = require('express-handlebars')
 const session = require('express-session')
+const methodOverride = require('method-override')
 
 const db = require('./config/mongoose')
 const usePassport = require('./config/passport')
@@ -20,6 +21,7 @@ app.use(session({
   saveUninitialized: true
 }))
 app.use(express.urlencoded({ extended: false }))
+app.use(methodOverride('_method'))
 
 usePassport(app)
 
