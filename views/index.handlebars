@@ -28,14 +28,14 @@
         </td>
         <td class="text-end">{{amount}}</td>
         <td class="text-end">
-          <a href="/records/{{_id}}/edit" class="btn btn-outline">
+          <div class="d-flex justify-content-end">
+          <a href="/records/{{_id}}/edit" class="btn btn-outline mx-1">
             修改
           </a>
-        </td>
-        <td class="text-end">
-          <a href="/records/{{_id}}?_method=DELETE" class="btn btn-outline">
+          <button type="submit" class="btn btn-outline mx-1">
             刪除
-          </a>
+          </button>
+          </div>
         </td>
       </tr>
       {{/with}}
