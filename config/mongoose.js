@@ -10,4 +10,4 @@ const db = mongoose.connection
 db.on('error', () => console.log('mongoDb connection error'))
 db.once('open', () => console.log('mongoDb is connected'))
 
-module.exprts = db
+module.exports = db
