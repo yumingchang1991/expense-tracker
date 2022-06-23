@@ -2,7 +2,7 @@ const router = require('express').Router()
 const Record = require('../../models/record')
 const Category = require('../../models/category')
 const formatDateString = require('../../utils/formatDateString')
-
+const { isCategorySelected } = require('../../utils/isCategorySelected')
 
 router.route('/:id/edit').get(async (req, res) => {
   Record
@@ -20,11 +20,7 @@ router.route('/:id/edit').get(async (req, res) => {
       return res.render('editRecord',
         { 
           record,
-          helpers: {
-            isSelected (category) {
-              return this.record.categoryId.name === category
-            }
-          }
+          helpers: { isCategorySelected }
         }
       )
     })
