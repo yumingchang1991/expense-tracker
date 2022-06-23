@@ -1,12 +1,15 @@
 <div class="container d-flex flex-column my-3 w-50">
-  <select class="form-select" name="category-filter">
-    <option selected>依類別篩選</option>
-    <option value="家居物業">家居物業</option>
-    <option value="交通出行">交通出行</option>
-    <option value="休閒娛樂">休閒娛樂</option>
-    <option value="餐飲食品">餐飲食品</option>
-    <option value="其他">其他</option>
-  </select>
+  <form id="filter-form" method="get" action="/">
+    <select class="form-select" name="categoryFilter">
+      <option selected disabled hidden>依分類篩選</option>
+      <option value="">顯示所有分類</option>
+      <option value="家居物業" {{#if (isCategoryFilterSelected "家居物業")}}selected{{/if}}>篩選：家居物業</option>
+      <option value="交通出行" {{#if (isCategoryFilterSelected "交通出行")}}selected{{/if}}>篩選：交通出行</option>
+      <option value="休閒娛樂" {{#if (isCategoryFilterSelected "休閒娛樂")}}selected{{/if}}>篩選：休閒娛樂</option>
+      <option value="餐飲食品" {{#if (isCategoryFilterSelected "餐飲食品")}}selected{{/if}}>篩選：餐飲食品</option>
+      <option value="其他" {{#if (isCategoryFilterSelected "其他")}}selected{{/if}}>篩選：其他</option>
+    </select>
+  </form>
   <div class="d-flex my-3">
     <span class="me-4 fs-4">總金額:</span>
     <span class="fs-1 align-top text-danger" id="total-amount">{{totalAmount}}</span>
@@ -22,7 +25,7 @@
         </td>
         <td>
           <div class="d-flex flex-column m-0 p-0">
-          <span class="fs-4">{{categoryId.name}}</span>
+          <span class="fs-4">{{name}}</span>
           <span class="fs-6">{{date}}</span>
           </div>
         </td>
@@ -52,3 +55,4 @@
   {{/if}}
   <a href="/records/new" class="btn btn-danger">新增支出</a>
 </div>
+<script src="/javascripts/index.js"></script>
