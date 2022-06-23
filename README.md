@@ -25,7 +25,7 @@ Please check out package.json for more dependecies
 GET     /                         read a page rendering all restaurants associated with current user
 
 GET     /users/register           render a page for user to register as member
-POST    /users                    register user input as member
+POST    /users/register           register user input as member
 GET     /users/login              render a page for user to input credential to login
 POST    /users/login              authenticate user crendential
 GET     /users/:id/logout         log current user out
