@@ -5,7 +5,7 @@ const User = require('../../models/user')
 const DummyUsers = require('../../dummyData/users')
 
 router.route('/login').get((req, res) => {
-  res.render('login', { user: DummyUsers[0] })
+  res.render('login', { DummyUser: DummyUsers[0] })
 })
 
 router.route('/login').post(passport.authenticate('local', {
@@ -30,7 +30,7 @@ router.route('/:id/logout').get((req, res) => {
     if (err) {
       return console.log('error when logging user out\n', err)
     }
-    return res.render('login')
+    return res.redirect('/users/login')
   })
 })
 

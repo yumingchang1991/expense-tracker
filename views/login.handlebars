@@ -2,7 +2,7 @@
   <header class="my-2">
     <h1>請登入</h1>
   </header>
-  {{#if user}}
+  {{#if DummyUser}}
   <div class="alert alert-success alert-dismissible fade show" role="alert">
     種子使用者的帳號密碼已自動填入。
     <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">
@@ -12,12 +12,12 @@
   {{/if}}
   <form method="post" action="/users/login">
     <div class="form-floating mb-3">
-      <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com" value="{{user.email}}">
+      <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com" value="{{DummyUser.email}}">
       <label for="email">電子信箱</label>
     </div>
     <div class="form-floating mb-3">
       <input type="password" name="password" class="form-control" id="password" placeholder="Password"
-      value="{{user.password}}">
+      value="{{DummyUser.password}}">
       <label for="password">密碼</label>
     </div>
     <div class="container d-flex flex-column mb-3 p-0">
