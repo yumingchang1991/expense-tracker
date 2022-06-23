@@ -10,6 +10,7 @@ const methodOverride = require('method-override')
 const db = require('./config/mongoose')
 const usePassport = require('./config/passport')
 const routes = require('./routes')
+const flash = require('connect-flash')
 
 const app = express()
 
@@ -26,11 +27,13 @@ app.use(express.urlencoded({ extended: false }))
 app.use(methodOverride('_method'))
 
 usePassport(app)
-
+app.use(flash())
 
 app.use((req, res, next) => {
   res.locals.isAuthenticated = req.isAuthenticated()
   res.locals.user = req.user
+  res.locals.successMsg = req.flash('successMsg')
+  res.locals.failureMsg = req.flash('failureMsg')
   next()
 })
 
