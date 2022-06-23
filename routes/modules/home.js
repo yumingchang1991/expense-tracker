@@ -5,7 +5,7 @@ const { isCategoryFilterSelected } = require('../../utils/isCategorySelected')
 
 router.route('/').get((req, res) => {
   const categoryFilter = req.query.categoryFilter
-  
+
   Record
     .find({ userId: req.user._id })
     .populate('categoryId')

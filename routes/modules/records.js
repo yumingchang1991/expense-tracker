@@ -33,14 +33,20 @@ router.route('/:id').put((req, res) => {
       req.params.id,
       { ...req.body }
     )
-    .then(() => res.redirect('/'))
+    .then(() => {
+      req.flash('successMsg', '已成功修改一筆支出')
+      res.redirect('/')
+    })
     .catch(err => console.log(err))
 })
 
 router.route('/:id').delete((req, res) => {
   Record
     .findByIdAndDelete(req.params.id)
-    .then(() => res.redirect('/'))
+    .then(() => {
+      req.flash('failureMsg', '已刪除一筆支出')
+      res.redirect('/')
+    })
     .catch(err => console.log(err))
 })
 
@@ -59,7 +65,8 @@ router.route('/new').post((req, res) => {
       return Record.create({ name, date, amount, categoryId, userId })
     })
     .then(() => {
-      return res.redirect('/')
+      req.flash('successMsg', '已新增一筆支出')
+      res.redirect('/')
     })
     .catch(err => console.log(err))
 })

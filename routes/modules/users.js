@@ -21,16 +21,18 @@ router.route('/:id').put((req, res) => {
   const { name, displayName } = req.body
   User
     .findByIdAndUpdate(req.user._id, { name, displayName })
-    .then(() => res.redirect('/'))
+    .then(() =>{
+      req.flash('successMsg', '已成功修改會員資料')
+      res.redirect('/')
+    })
     .catch(err => console.log(err))
 })
 
-router.route('/:id/logout').get((req, res) => {
+router.route('/:id/logout').get((req, res, next) => {
   req.logout(err => {
-    if (err) {
-      return console.log('error when logging user out\n', err)
-    }
-    return res.redirect('/users/login')
+    if (err) return next(err)
+    req.flash('successMsg', '已成功登出')
+    res.redirect('/users/login')
   })
 })
 
@@ -42,12 +44,14 @@ router.route('/').post((req, res) => {
   const { name, displayName, email, password, confirmPassword } = req.body
   // ensure password and confirmPassword are the same
   if (password !== confirmPassword) {
-    return res.redirect('/users/login')
+    req.flash('failureMsg', '輸入的密碼不一致，請確保密碼一致')
+    return res.redirect('/users/register')
   }
 
   // ensure name is filled
   if (!name) {
-    return res.redirect('/users/login')
+    req.flash('failureMsg', '姓名為必填欄位')
+    return res.redirect('/users/register')
   }
 
   // ensure email is not registered
@@ -55,8 +59,8 @@ router.route('/').post((req, res) => {
     .findOne({ email })
     .then(user => {
       if (user) {
-        return res.redirect('users/login')
-        // todo: user already exists -> login and display message
+        req.flash('failureMsg', '信箱已註冊，請直接登入')
+        return res.redirect('/users/login')
       }
       return bcrypt.genSalt(10)
     })
@@ -69,7 +73,8 @@ router.route('/').post((req, res) => {
         password: hashed
       })
     })
-    .then(newUser => {
+    .then(() => {
+      req.flash('successMsg', '已成功註冊會員')
       res.redirect('/users/login')
     })
     .catch(err => console.log('error when creating new user in mongo DB\n' ,err))

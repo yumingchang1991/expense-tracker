@@ -2,14 +2,7 @@
   <header class="my-2">
     <h1>請登入</h1>
   </header>
-  {{#if DummyUser}}
-  <div class="alert alert-success alert-dismissible fade show" role="alert">
-    種子使用者的帳號密碼已自動填入。
-    <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true"></span>
-    </button>
-  </div>
-  {{/if}}
+  {{>message}}
   <form method="post" action="/users/login">
     <div class="form-floating mb-3">
       <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com" value="{{DummyUser.email}}">

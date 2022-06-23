@@ -30,12 +30,14 @@ function verifyLocal(req, email, password, done) {
     .findOne({ email })
     .then(user => {
       if (!user) {
+        req.flash('failureMsg', '電子信箱未註冊，請先註冊為會員')
         return done(null, false, { message: '電子信箱未註冊，請先註冊為會員' })
       }
       return bcrypt
         .compare(password, user.password)
         .then(isMatch => {
           if (!isMatch) {
+            req.flash('failureMsg', '密碼錯誤')
             return done(null, false, { message: '密碼錯誤' })
           }
           return done(null, user)
