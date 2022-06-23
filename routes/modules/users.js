@@ -40,18 +40,19 @@ router.route('/register').get((req, res) => {
   res.render('register')
 })
 
-router.route('/').post((req, res) => {
+router.route('/register').post((req, res) => {
   const { name, displayName, email, password, confirmPassword } = req.body
+  const userInput = { name, displayName, email }
   // ensure password and confirmPassword are the same
   if (password !== confirmPassword) {
     req.flash('failureMsg', '輸入的密碼不一致，請確保密碼一致')
-    return res.redirect('/users/register')
+    return res.render('register', { userInput })
   }
 
   // ensure name is filled
   if (!name) {
     req.flash('failureMsg', '姓名為必填欄位')
-    return res.redirect('/users/register')
+    return res.render('register', { userInput })
   }
 
   // ensure email is not registered

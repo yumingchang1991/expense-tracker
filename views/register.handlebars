@@ -3,12 +3,12 @@
     <h1>會員註冊</h1>
   </header>
   {{>message}}
-  <form method="post" action="/users">
+  <form method="post" action="/users/register">
     <fieldset class="form-group mb-3">
       <legend>登入資訊</legend>
       <div class="form-floating mb-3">
         <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com"
-          value="{{dummyUserEmail}}">
+          value="{{userInput.email}}">
         <label for="email">電子信箱</label>
       </div>
       <div class="form-floating mb-3">
@@ -24,11 +24,11 @@
       <legend>基本資料</legend>
       <div class="form-floating mb-3">
         <input type="text" name="name" class="form-control" id="name" placeholder="full name"
-          value="{{dummyUserName}}">
+          value="{{userInput.name}}">
         <label for="name">姓名</label>
       </div>
       <div class="form-floating mb-3">
-        <input type="text" name="displayName" class="form-control" id="displayName" placeholder="display name" value="{{dummyUserDisplayName}}">
+        <input type="text" name="displayName" class="form-control" id="displayName" placeholder="display name" value="{{userInput.displayName}}">
         <label for="displayName">顯示名稱</label>
       </div>
     </fieldset>
