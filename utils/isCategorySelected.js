@@ -9,6 +9,6 @@ module.exports = {
   
   // for single record in edit record page
   isCategorySelected(category) {
-    return this.record.categoryId.name === category
+    return this.record.categoryId.name === category.toUpperCase()
   }
 }

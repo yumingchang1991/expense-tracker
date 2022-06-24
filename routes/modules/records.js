@@ -34,7 +34,7 @@ router.route('/:id').put((req, res) => {
       { ...req.body }
     )
     .then(() => {
-      req.flash('successMsg', '已成功修改一筆支出')
+      req.flash('successMsg', 'successfully edited an expense')
       res.redirect('/')
     })
     .catch(err => console.log(err))
@@ -44,7 +44,7 @@ router.route('/:id').delete((req, res) => {
   Record
     .findByIdAndDelete(req.params.id)
     .then(() => {
-      req.flash('failureMsg', '已刪除一筆支出')
+      req.flash('failureMsg', 'an expensed is removed')
       res.redirect('/')
     })
     .catch(err => console.log(err))
@@ -65,7 +65,7 @@ router.route('/new').post((req, res) => {
       return Record.create({ name, date, amount, categoryId, userId })
     })
     .then(() => {
-      req.flash('successMsg', '已新增一筆支出')
+      req.flash('successMsg', 'an expense is added')
       res.redirect('/')
     })
     .catch(err => console.log(err))

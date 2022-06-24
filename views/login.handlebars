@@ -1,23 +1,24 @@
 <main class="container">
   <header class="my-2">
-    <h1>請登入</h1>
+    <h1>Please Login</h1>
   </header>
   {{>message}}
   <form method="post" action="/users/login">
     <div class="form-floating mb-3">
       <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com" value="{{DummyUser.email}}">
-      <label for="email">電子信箱</label>
+      <label for="email">Email</label>
     </div>
     <div class="form-floating mb-3">
       <input type="password" name="password" class="form-control" id="password" placeholder="Password"
       value="{{DummyUser.password}}">
-      <label for="password">密碼</label>
+      <label for="password">Passord</label>
     </div>
     <div class="container d-flex flex-column mb-3 p-0">
-    <button type="submit" class="btn btn-success mb-3">登入</button>
+    <button type="submit" class="btn btn-success mb-3">Login</button>
     <p>
-      不是會員嗎？
-      <a href="/users/register" class="btn btn-primary mb-3">立即免費註冊</a>
+      Not yet our member?
+      <a href="/users/register" class="btn btn-primary mb-3">Register Now</a>
+      for FREE
     </p>
     </div>
   </form>

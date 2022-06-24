@@ -1,26 +1,56 @@
 module.exports = [
   {
-    name: '早餐',
+    name: 'breakfast',
     date: Date(),
     amount: 100,
-    category: '餐飲食品'
+    category: 'Food'
   },
   {
-    name: '休旅車',
+    name: 'eggs',
+    date: Date(),
+    amount: 64,
+    category: 'Food'
+  },
+  {
+    name: 'water',
+    date: Date(),
+    amount: 477,
+    category: 'Utilities'
+  },
+  {
+    name: 'electricity',
+    date: Date(),
+    amount: 2056,
+    category: 'Utilities'
+  },
+  {
+    name: 'toilet paper',
+    date: Date(),
+    amount: 624,
+    category: 'Groceries'
+  },
+  {
+    name: 'tissues',
+    date: Date(),
+    amount: 624,
+    category: 'Groceries'
+  },
+  {
+    name: 'CRV',
     date: Date(),
     amount: 885000,
-    category: '交通出行'
+    category: 'Transportation'
   },
   {
-    name: '保養品',
+    name: 'skincare',
     date: Date(),
     amount: 2100,
-    category: '其他'
+    category: 'Others'
   },
   {
-    name: '電影',
+    name: 'movie',
     date: Date(),
     amount: 310,
-    category: '休閒娛樂'
+    category: 'Entertainment'
   }
 ]

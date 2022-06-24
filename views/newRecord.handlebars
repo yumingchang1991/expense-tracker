@@ -1,39 +1,40 @@
 <form class="container my-3 text-center w-50" method="post" action="/records/new">
   <div class="row">
-    <small class="col-3 col-form-label">*必填欄位</small>
-    <span class="col-9 fs-5 text-center">請輸入你的支出</span>
+    <small class="col-3 col-form-label">*Required</small>
+    <span class="col-9 fs-5 text-center">Adding Expense</span>
   </div>
 
   <div class="row my-3">
-    <label class="col-3 fs-5 col-form-label" for="name">名稱*</label>
+    <label class="col-3 fs-5 col-form-label" for="name">Name*</label>
     <div class="col-9">
       <input class="fs-5 form-control" id="name" name="name" type="text" required>
     </div>
   </div>
 
   <div class="row my-3">
-    <label class="col-3 fs-5 col-form-label" for="date">日期*</label>
+    <label class="col-3 fs-5 col-form-label" for="date">Date*</label>
     <div class="col-9">
       <input class="fs-5 form-control" id="date" name="date" type="date" required>
     </div>
   </div>
 
   <div class="row my-3">
-    <label class="col-3 fs-5 col-form-label" for="category">類別*</label>
+    <label class="col-3 fs-5 col-form-label" for="category">Category*</label>
     <div class="col-9">
       <select class="fs-5 form-select" id="category" name="category" required>
         <option selected disabled hidden>Select</option>
-        <option value="家居物業">家居物業</option>
-        <option value="交通出行">交通出行</option>
-        <option value="休閒娛樂">休閒娛樂</option>
-        <option value="餐飲食品">餐飲食品</option>
-        <option value="其他">其他</option>
+        <option value="Utilities">Utilities</option>
+        <option value="Groceries">Groceries</option>
+        <option value="Transportation">Transportation</option>
+        <option value="Entertainment">Entertainment</option>
+        <option value="Food">Food</option>
+        <option value="Others">Others</option>
       </select>
     </div>
   </div>
 
   <div class="row my-3">
-    <label class="col-3 fs-5 col-form-label" for="amount">金額*</label>
+    <label class="col-3 fs-5 col-form-label" for="amount">Amount*</label>
     <div class="col-9">
       <input class="fs-5 form-control" id="amount" name="amount" type="number" required>
     </div>
@@ -42,14 +43,14 @@
   <div class="row my-3">
     <span class="col-3" display="hidden"></span>
     <div class="col-9">
-      <button class="container btn btn-success" type="submit">新增支出</button>
+      <button class="container btn btn-success" type="submit">Save</button>
     </div>
   </div>
 
   <div class="row my-3">
     <span class="col-3" display="hidden"></span>
     <div class="col-9">
-      <a href="/" class="container btn btn-danger mb-3">取消</a>
+      <a href="/" class="container btn btn-danger mb-3">Cancel</a>
     </div>
   </div>
 

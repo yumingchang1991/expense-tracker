@@ -21,7 +21,7 @@ db.once('open', () => {
     .lean()
     .then(categories => {
       RECORDS.forEach(record => {
-        const categoryId = categories.filter(category => category.name === record.category)[0]._id
+        const categoryId = categories.filter(category => category.name === record.category.toUpperCase())[0]._id
         record.categoryId = categoryId
       })
       return Promise.resolve()

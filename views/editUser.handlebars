@@ -1,28 +1,28 @@
 <div class="container">
   <form method="post" action="/users/{{user._id}}?_method=PUT">
     {{!-- <fieldset class="form-group mb-3">
-      <legend>登入資訊</legend>
+      <legend>Login Information</legend>
       <div class="form-floating mb-3">
         <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com"
           value="{{user.email}}">
-        <label for="email">電子信箱</label>
+        <label for="email">Email</label>
       </div>
     </fieldset> --}}
     <fieldset class="form-group mb-3">
-      <legend>基本資料</legend>
+      <legend>Profile</legend>
       <div class="form-floating mb-3">
         <input type="text" name="name" class="form-control" id="name" placeholder="full name" value="{{user.name}}">
-        <label for="name">姓名</label>
+        <label for="name">Name</label>
       </div>
       <div class="form-floating mb-3">
         <input type="text" name="displayName" class="form-control" id="displayName" placeholder="display name"
           value="{{user.displayName}}">
-        <label for="displayName">顯示名稱</label>
+        <label for="displayName">Display Name</label>
       </div>
     </fieldset>
     <div class="container d-flex flex-column mb-3 p-0">
-      <button type="submit" class="btn btn-success mb-3">儲存修改</button>
-      <a href="/" class="btn btn-danger mb-3">取消</a>
+      <button type="submit" class="btn btn-success mb-3">Save Changes</button>
+      <a href="/" class="btn btn-danger mb-3">Cancel</a>
     </div>
   </form>
 </div>

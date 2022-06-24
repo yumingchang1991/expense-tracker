@@ -17,7 +17,7 @@ router.route('/').get((req, res) => {
         if (!categoryFilter || categoryFilter === '') {
           return true
         }
-        return record.categoryId.name === categoryFilter
+        return record.categoryId.name === categoryFilter.toUpperCase()
       })
 
       // calculate total amount
