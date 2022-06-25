@@ -1,6 +1,6 @@
-<div class="container d-flex flex-column my-3 w-50">
+<div class="container d-flex flex-column my-3 w-75">
   {{>message}}
-  <form id="filter-form" method="get" action="/">
+  <form id="filter-form" class="sticky-top" method="get" action="/">
     <select class="form-select" name="categoryFilter">
       <option selected disabled hidden>select a cateogry to display</option>
       <option value="">Display ALL</option>
@@ -16,8 +16,9 @@
     <span class="me-4 fs-4">Total Amount:</span>
     <span class="fs-1 align-top text-danger" id="total-amount">{{totalAmount}}</span>
   </div>
+  <a href="/records/new" class="btn btn-danger my-3 sticky-top">Add Expense</a>
   {{#if records}}
-  <table class="table table-striped table-hover align-middle">
+  <table class="table table-striped table-hover align-middle px-0">
     <tbody>
       {{#each records}}
       {{#with this}}
@@ -55,6 +56,5 @@
     <div class="ms-2">There is no record yet</div>
   </div>
   {{/if}}
-  <a href="/records/new" class="btn btn-danger">Add Expense</a>
 </div>
 <script src="/javascripts/index.js"></script>
