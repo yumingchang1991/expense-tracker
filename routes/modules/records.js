@@ -15,7 +15,7 @@ router.route('/:id/edit').get(async (req, res) => {
       }
       // format date into YYYY-MM-DD to set default value
       record.date = formatDateString(record.date)
-
+      
       // render handlebars template with helper function to decide which category is default
       return res.render('editRecord',
         { 
