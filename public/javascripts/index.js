@@ -9,8 +9,8 @@ Select.addEventListener('change', e => {
 })
 
 expenseTable.addEventListener('click', e => {
-  e.preventDefault()
   if (e.target.classList.contains('button-delete-expense')) {
+    e.preventDefault()
     if (window.confirm("please confirm you'd like to remove this expense")) {
       return e.target.parentElement.submit()
     }
