@@ -8,7 +8,6 @@ const categorySchema = new Schema({
     unique: true,
     required: true,
     trim: true,
-    uppercase: true,
   },
   iconClass: {
     type: String,

@@ -17,13 +17,17 @@ router.route('/:id/edit').get((req, res) => {
   res.render('editUser')
 })
 
+router.route('/:id').get((req, res) => {
+  res.render('profile')
+})
+
 router.route('/:id').put((req, res) => {
   const { name, displayName } = req.body
   User
     .findByIdAndUpdate(req.user._id, { name, displayName })
     .then(() =>{
       req.flash('successMsg', 'your profile is updated')
-      res.redirect('/')
+      res.redirect('/users/:id')
     })
     .catch(err => console.log(err))
 })

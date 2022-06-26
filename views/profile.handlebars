@@ -1,0 +1,26 @@
+<div class="container">
+  {{>message}}
+  <form method="post" action="/users/{{user._id}}?_method=PUT">
+    <fieldset class="mb-3 ">
+      <legend>Profile</legend>
+      <div class="mb-3  ">
+        <label for="email" class="fw-bold">Email</label>
+        <input type="email" name="email" class="form-control-plaintext" id="email" placeholder="name@example.com" readonly
+          value="{{user.email}}">
+      </div>
+      <div class="mb-3">
+        <label for="name" class="fw-bold">Name</label>
+        <input type="text" name="name" class="form-control-plaintext" id="name" placeholder="full name" value="{{user.name}}">
+      </div>
+      <div class="mb-3">
+        <label for="displayName" class="fw-bold">Display Name</label>
+        <input type="text" name="displayName" class="form-control-plaintext" id="displayName" placeholder="display name"
+          value="{{user.displayName}}">
+      </div>
+    </fieldset>
+    <div class="container d-flex flex-column mb-3 p-0">
+      <a href="/users/{{user._id}}/edit" class="btn btn-success mb-3">Edit Profile</a>
+      <a href="/" class="btn btn-primary mb-3">Go Back</a>
+    </div>
+  </form>
+</div>

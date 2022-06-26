@@ -1,15 +1,15 @@
 <div class="container">
   <form method="post" action="/users/{{user._id}}?_method=PUT">
-    {{!-- <fieldset class="form-group mb-3">
-      <legend>Login Information</legend>
-      <div class="form-floating mb-3">
-        <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com"
-          value="{{user.email}}">
-        <label for="email">Email</label>
-      </div>
-    </fieldset> --}}
     <fieldset class="form-group mb-3">
       <legend>Profile</legend>
+      <div class="input-group mb-3">
+        <input type="email" name="email" id="email" class="form-control" placeholder="abc@example.com" 
+        value="{{user.email}}"
+        aria-label="User's login email"
+        aria-describedby="change-email"
+        readonly>
+        <button class="btn btn-outline-secondary change-email" type="button" id="change-email">Change Email</button>
+      </div>
       <div class="form-floating mb-3">
         <input type="text" name="name" class="form-control" id="name" placeholder="full name" value="{{user.name}}">
         <label for="name">Name</label>
@@ -22,7 +22,7 @@
     </fieldset>
     <div class="container d-flex flex-column mb-3 p-0">
       <button type="submit" class="btn btn-success mb-3">Save Changes</button>
-      <a href="/" class="btn btn-danger mb-3">Cancel</a>
+      <a href="/users/{{user._id}}" class="btn btn-danger mb-3">Cancel</a>
     </div>
   </form>
 </div>
